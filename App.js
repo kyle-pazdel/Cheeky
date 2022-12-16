@@ -10,7 +10,7 @@ const App = () => {
   const store = createStore(rootReducer, applyMiddleware(thunk));
   return (
     <Provider store={store}>
-      <View></View>
+      <View />
     </Provider>
   );
 };

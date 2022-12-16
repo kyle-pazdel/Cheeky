@@ -7,10 +7,10 @@ import reducers from './app/reducers';
 
 const App = () => {
   const rootReducer = combineReducers({...reducers});
-  const store = configureStore(rootReducer, applyMiddleware);
+  const store = configureStore(rootReducer, applyMiddleware(thunk));
   return (
     <Provider store={store}>
-      <view> </view>
+      <View> </View>
     </Provider>
   );
 };

@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {View, ScrollView, Text} from 'react-native';
+import {View, ScrollView, Text, TextInput} from 'react-native';
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: '',
+    };
+  }
+
   componentDidMount() {
     this.props.actions.fetchNotes();
   }
@@ -14,8 +21,21 @@ export default class Home extends Component {
       return <Text>{'Loading'}</Text>;
     }
     return (
-      <View>{data.map(note => this._renderNote(note.performer_name))}</View>
+      <View>{data.map(note => this._renderNote(note))}</View>
     );
+  }
+
+  _renderCreateForm() {
+    return(
+      <View>
+        <TextInput
+        style={styles.textfield}
+        placeholder={'Text'}
+        onChangeText={text => this.setState({text})}
+        value={this.state.text}>
+        </TextInput>
+      </View>
+    )
   }
 
   render() {

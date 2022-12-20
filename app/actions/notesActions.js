@@ -28,7 +28,7 @@ export function createNote(note) {
         },
         body: JSON.stringify({note}),
       });
-      if (response.statys !== 200) {
+      if (response.stats !== 200) {
         throw new Error('FETCH_ERROR');
       }
       response = await response.json();

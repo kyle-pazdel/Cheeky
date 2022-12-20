@@ -14,6 +14,7 @@ export default (state = INITIAL_STATE, action) => {
         status: 'loading',
         error: null,
       };
+
     case 'FETCH_NOTES_SUCCESS':
       return {
         ...state,
@@ -21,18 +22,21 @@ export default (state = INITIAL_STATE, action) => {
         data: action.data,
         error: null,
       };
+
     case 'FETCH_NOTES_FAILURE':
       return {
         ...state,
         status: 'failure',
         error: action.error,
       };
+
     case 'CREATE_NOTE':
       return {
         ...state,
         createStatus: 'loading',
         createError: null,
       };
+
     case 'CREATE_NOTE_SUCCESS':
       return {
         ...state,
@@ -40,13 +44,16 @@ export default (state = INITIAL_STATE, action) => {
         data: [...state.data, action.data],
         createError: null,
       };
+
     case 'CREATE_NOTE_FAILURE':
       return {
         ...state,
         createStatus: 'failure',
         createError: action.error,
       };
+
     default:
       return state;
   }
 };
+

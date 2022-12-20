@@ -1,10 +1,10 @@
-import {types} from '@babel/core';
+import * as types from '../actionTypes/notes';
 
 export function fetchNotes() {
   return async dispatch => {
     dispatch({type: types.FETCH_NOTES});
     try {
-      let response = await fetch('http://localhost:3000/performers.json');
+      let response = await fetch('http://localhost:5000/notes');
       if (response.status !== 200) {
         throw new Error('FETCH_ERROR');
       }
@@ -20,7 +20,7 @@ export function createNote(note) {
   return async dispatch => {
     dispatch({type: types.CREATE_NOTE});
     try {
-      let response = await fetch('http://localhost:3000/performers.json', {
+      let response = await fetch('http://localhost:5000/notes', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

@@ -1,0 +1,6 @@
+rails s 
+ -in backend
+npx react-native start 
+ -in frontend
+npx react-native run-ios 
+ -in frontent to start simulator and build app

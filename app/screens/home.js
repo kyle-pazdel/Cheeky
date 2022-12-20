@@ -8,10 +8,14 @@ export default class Home extends Component {
 
   _renderNotes() {
     const {data} = this.props.notes;
-    return <View>{data.map(note => this._renderNote(note))}</View>;
+    return (
+      <View>{data.map(note => this._renderNote(note.performer_name))}</View>
+    );
   }
 
   render() {
-    return <ScrollView></ScrollView>;
+    return (
+      <ScrollView style="{styles.container}">{this._renderNotes()}</ScrollView>
+    );
   }
 }
